@@ -1,71 +1,86 @@
-# 🧠 Data Pipeline & Development: Data Preprocessing, Transformation, and Loading
+🧠 MNIST Digit Classifier: Deep Learning for Handwritten Digits
 
 *COMPANY*: CODTECH IT SOLUTIONS PVT.LTD
 *NAME*: Yasir Siraj Mondal
-*INTERN ID*: CT12DR681
 *DOMAIN*: Data Science
-*DURATION*:  12 weeks 
+*DURATION*: 12 weeks
 *MENTOR*: Neela Santhosh Kumar
 
 
 📘 Description
 
-This Python script automates the ETL (Extract, Transform, Load) process using pandas and scikit-learn.
-It fetches an online dataset, preprocesses it (removes duplicates, handles missing values), transforms it (scaling + encoding), and saves a clean version as a CSV file ready for further analysis or modeling.
-
+This Python script implements a Convolutional Neural Network (CNN) to classify handwritten digits from the MNIST dataset. The workflow includes data preprocessing (normalization and one-hot encoding), model building (Conv2D, MaxPooling2D, Flatten, Dense layers), training, evaluation, and visualization. The trained model is saved for reuse, providing a complete end-to-end image classification pipeline.
 
 
 ⚙ Steps Performed
 
-1. Extract – Loads the Iris dataset directly from an online URL using pandas.read_csv().
+1. Extract – Loads the MNIST dataset directly from Keras datasets.
 
-2. Preprocess – Removes duplicate rows and fills missing values with the mean (for numeric) or mode (for categorical).
+2. Preprocess – Reshapes images to 28×28×1 and normalizes pixel values to range 0–1. Converts labels to one-hot encoding.
 
-3. Transform – Uses ColumnTransformer and Pipeline from scikit-learn to:
-Standardize numeric columns.
-One-hot encode categorical columns.
+3. Transform / Model Building – Builds a simple CNN using Keras:
+Conv2D + MaxPooling2D layers to extract image features
+Flatten + Dense layers for classification
+Softmax output layer for 10 classes
 
-4. Load – Exports the final transformed dataset as cleaned_data.csv.
+4. Train – Trains the model on 60,000 training images for 5 epochs with a validation split of 20%.
+
+5. Evaluate & Visualize – Prints test accuracy (~98.5%), plots training/validation accuracy and loss, and shows predictions for sample test images.
+
+6. Save – Saves the trained model as mnist_model.h5 for later use without retraining.
+
 
 
 🧰 Requirements
-Before running the script, install the necessary libraries:
-pip install pandas scikit-learn
+
+Install the necessary libraries:
+
+pip install tensorflow keras matplotlib numpy
+
 Optional (if using a virtual environment):
 
 python -m venv .venv
-.\.venv\Scripts\activate       # On Windows
- or
-source .venv/bin/activate      # On Mac/Linux
-
-
+# Windows
+.\.venv\Scripts\activate
+# Mac/Linux
+source .venv/bin/activate
 
 
 ▶ How to Run
-1. Open the folder containing etl.py in VS Code or a terminal.
 
-2. Run the following command:
-python etl.py
+1. Open the folder containing classifier.py in VS Code or terminal.
 
-3. The script will:
-Fetch data from the web.
-Clean and transform it.
-Save the output file named cleaned_data.csv in the same folder.
+2. Ensure the virtual environment is activated (if used).
 
+3. Run the script:
+python classifier.py
+
+4. The script will:
+Load and preprocess the MNIST dataset
+Train the CNN model (first run)
+Evaluate test accuracy
+Display training/validation curves and sample predictions
+Save the trained model as mnist_model.h5
+
+> Subsequent runs automatically load the saved model to skip retraining.
 
 
 
 🧾 Output
 
-cleaned_data.csv → A fully cleaned and transformed version of the dataset.
-Contains scaled numeric values and encoded categorical features.
+mnist_model.h5 → Trained CNN model ready for reuse
 
+Plots → Accuracy & loss curves for training/validation
+
+Sample Predictions → Visualizations of predicted digits
 
 
 🧱 Tech Stack
 
 Python 3.8+
 
-pandas
+TensorFlow / Keras
 
-scikit-learn
+Matplotlib
+
+NumPy
