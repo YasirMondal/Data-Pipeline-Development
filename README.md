@@ -1,7 +1,7 @@
 🧠 Data Pipeline: Data Preprocessing,Transformation and Loading
 
 This Python script automates the ETL (Extract, Transform, Load) process using pandas and scikit-learn.
-It fetches an online dataset, preprocesses it (removes duplicates, handles missing values), transforms it (scaling + encoding), and saves a clean version as a CSV file — ready for further analysis or modeling.
+It fetches an online dataset, preprocesses it (removes duplicates, handles missing values), transforms it (scaling + encoding), and saves a clean version as a CSV file ready for further analysis or modeling.
 
 
 *COMPANY*: CODTECH IT SOLUTIONS PVT.LTD
